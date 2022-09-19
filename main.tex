@@ -1,0 +1,106 @@
+\documentclass[12pt]{amsart}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue
+}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{caution}[theorem]{Caution}
+
+\begin{document}
+
+\title{Homework 4}
+
+\maketitle
+
+For this week, please answer the following questions from the text. 
+I've copied the problem itself below and the question numbers for 
+your convenience. 
+
+\begin{enumerate}
+	\item (2.3) Let $g$ be a primitive root for $\mathbb{F}_p$.
+	\begin{enumerate}
+		\item Suppose that $x=a$ and $x=b$ are both integer solutions to the congruence 
+			$g^x = h \mod p$. Prove that $a = b \mod (p-1)$. Explain why this implies 
+			the map (2.1) on page 65 is well-defined. 
+		\item Prove that 
+		\begin{displaymath}
+			\log_g(h_1 h_2) = \log_g(h_1) + \log_g(h_2) 
+		\end{displaymath}
+		for all $h_1,h_2 \in \mathbb{F}_p$.
+		\item Prove that 
+		\begin{displaymath}
+			\log_g(h^n) = n\log_g(h) 
+		\end{displaymath}
+		for all $h \in \mathbb{F}_p$ and $n \in \mathbb{Z}$.
+	\end{enumerate}
+\item (2.4) Compute the following discrete logarithms:
+\begin{enumerate}
+\item $\log_2(13)$ for the prime $23$, i.e., $p=23$, $g=2$, and you must solve the the 
+	congruence $2^x = 13 \mod 23$. 
+\item $\log_{10}(22)$ for the prime $p=47$. 
+\item $\log_{627}(608)$ for the prime $p=941$. (Hint: Look in the second column of Table 2.1 on page 66.) 
+\end{enumerate}
+% \item (2.5) Let $p$ be an odd prime and let $g$ be a primitive root modulo $p$. Prove that $a$ has a 
+% 	square root modulo $p$ if and only if its discrete logarithm $\log_g(a)$ modulo $p−1$ is even.
+\item (2.16) Verify the following assertions from Exmaple 2.16. 
+	\begin{enumerate}
+		\item $x^2 + \sqrt{x} = \mathcal O(x^2)$
+		\item $5+6x^2-37x^5 = \mathcal O(x^5)$
+		\item $k^{300} = \mathcal O(2^k)$ 
+		\item $(\ln k)^{375} = \mathcal O(k^{0.001})$
+		\item $k^2 2^k = \mathcal O(e^{2k})$
+		\item $N^{10} 2^N = \mathcal O(e^N)$
+	\end{enumerate}
+\item (1.44) Consider the Hill cipher defined by (1.11) 
+	\begin{displaymath}
+		e_k(m) = k_1 \cdot m + k_2 \mod p \ \text{and} \ d_k(m) = k_1^{-1} \cdot (c - k_2) \mod p
+	\end{displaymath}
+	where $m$, $c$, and $k_2$ are column vectors of dimension $n$, and $k_1$ is an $n \times n$-matrix. 
+	\begin{enumerate}
+		\item We use the Hill cipher with $p=7$ and the key $k_1 = \begin{pmatrix} 1 & 3 \\ 2 & 2 
+		\end{pmatrix}$ and $k_2 = \begin{pmatrix} 5 \\ 4 \end{pmatrix}$. 
+		\begin{enumerate}
+			\item Encrypt the message $m_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$. 
+			\item What is the matrix $k_1^{-1}$ used for decryption?
+			\item Decrypt the message $c = \begin{pmatrix} 3 \\ 5 \end{pmatrix}$.
+		\end{enumerate}
+		\item Explain why the Hill cipher is vulnerable to a known plaintext attack. 
+		\item The following plaintext/ciphertext pairs were generated using a Hill cipher with 
+			the prime $p=11$. Find the keys $k_1$ and $k_2$. 
+		\begin{displaymath}
+			m_1 = \begin{pmatrix} 5 \\ 4 \end{pmatrix}, \ c_1 = \begin{pmatrix} 1 \\ 8 \end{pmatrix}, 
+			\ m_2 = \begin{pmatrix} 8 \\ 10 \end{pmatrix}, \ c_2 = \begin{pmatrix} 8 \\ 5 
+			\end{pmatrix}, \ m_3 = \begin{pmatrix} 7 \\ 1 \end{pmatrix}, c_3 = 
+			\begin{pmatrix} 8 \\ 7 \end{pmatrix} 
+		\end{displaymath}
+		\item Explain how any simple substitution cipher that involves a permutation of the alphabet 
+		can be thought of as a special case of a Hill cipher.
+	\end{enumerate}
+\item (1.48) Explain why the cipher 
+	\begin{displaymath}
+		e_k(m) = k \oplus m \ \text{and} \ d_k(c) = k \oplus c 
+	\end{displaymath}
+	defined by XOR of bit strings is not secure against a known plaintext attack. Demonstrate your attack 
+	by finding the private key used to encrypt the 16-bit 
+	ciphertext $c = 1001010001010111$ if you know the corresponding plaintext is $m = 0010010000101100$.
+\end{enumerate}
+
+\end{document}
