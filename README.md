@@ -1,4 +1,4 @@
-## Homework 4: Due 2022.09.19 
+## Homework 5: Due 2022.09.25 
 
 This week we have a written part and an implementation part. 
 
@@ -15,4 +15,7 @@ Note: when you submit, your filename must be `solutions.pdf` and it must be a pd
 
 ### Implementation part 
 
-Make `hw4.go` pass the tests. 
+This week we start with the first algorithmic attempt at faster solution to 
+solving the discrete logarithm problem: Shanks algorithm. 
+
+Make `hw5.go` pass the tests. 

@@ -26,7 +26,7 @@
 
 \begin{document}
 
-\title{Homework 4}
+\title{Homework 5}
 
 \maketitle
 
@@ -35,72 +35,81 @@ I've copied the problem itself below and the question numbers for
 your convenience. 
 
 \begin{enumerate}
-	\item (2.3) Let $g$ be a primitive root for $\mathbb{F}_p$.
-	\begin{enumerate}
-		\item Suppose that $x=a$ and $x=b$ are both integer solutions to the congruence 
-			$g^x = h \mod p$. Prove that $a = b \mod (p-1)$. Explain why this implies 
-			the map (2.1) on page 65 is well-defined. 
-		\item Prove that 
+	\item (2.6) Alice and Bob agree to use the prime $p=1373$ and 
+		the base $g=2$ for the Diffie-Hellman key exchange. Alice 
+		sends Bob the value $A = 974$. Bob asks your assistance, 
+		so you tell him to use the secret exponent $b=871$. What 
+		value $B$ should Bob send to Alice, and what is their 
+		secret shared value? Can you figure out Alice's secret 
+		exponent?
+	\item (2.7) Let $p$ be a prime and let $g$ be an integer. The 
+		\textit{Decision Diffie-Hellman Problem} is as follows. 
+		Suppose that you are given three numbers $A$, $B$, and $C$, 
+		and suppose that $A$ and $B$ are equalt to 
 		\begin{displaymath}
-			\log_g(h_1 h_2) = \log_g(h_1) + \log_g(h_2) 
+			A = g^a \mod p, \ B = g^b \mod p
 		\end{displaymath}
-		for all $h_1,h_2 \in \mathbb{F}_p$.
-		\item Prove that 
-		\begin{displaymath}
-			\log_g(h^n) = n\log_g(h) 
-		\end{displaymath}
-		for all $h \in \mathbb{F}_p$ and $n \in \mathbb{Z}$.
-	\end{enumerate}
-\item (2.4) Compute the following discrete logarithms:
-\begin{enumerate}
-\item $\log_2(13)$ for the prime $23$, i.e., $p=23$, $g=2$, and you must solve the the 
-	congruence $2^x = 13 \mod 23$. 
-\item $\log_{10}(22)$ for the prime $p=47$. 
-\item $\log_{627}(608)$ for the prime $p=941$. (Hint: Look in the second column of Table 2.1 on page 66.) 
-\end{enumerate}
-% \item (2.5) Let $p$ be an odd prime and let $g$ be a primitive root modulo $p$. Prove that $a$ has a 
-% 	square root modulo $p$ if and only if its discrete logarithm $\log_g(a)$ modulo $p−1$ is even.
-\item (2.16) Verify the following assertions from Exmaple 2.16. 
-	\begin{enumerate}
-		\item $x^2 + \sqrt{x} = \mathcal O(x^2)$
-		\item $5+6x^2-37x^5 = \mathcal O(x^5)$
-		\item $k^{300} = \mathcal O(2^k)$ 
-		\item $(\ln k)^{375} = \mathcal O(k^{0.001})$
-		\item $k^2 2^k = \mathcal O(e^{2k})$
-		\item $N^{10} 2^N = \mathcal O(e^N)$
-	\end{enumerate}
-\item (1.44) Consider the Hill cipher defined by (1.11) 
-	\begin{displaymath}
-		e_k(m) = k_1 \cdot m + k_2 \mod p \ \text{and} \ d_k(m) = k_1^{-1} \cdot (c - k_2) \mod p
-	\end{displaymath}
-	where $m$, $c$, and $k_2$ are column vectors of dimension $n$, and $k_1$ is an $n \times n$-matrix. 
-	\begin{enumerate}
-		\item We use the Hill cipher with $p=7$ and the key $k_1 = \begin{pmatrix} 1 & 3 \\ 2 & 2 
-		\end{pmatrix}$ and $k_2 = \begin{pmatrix} 5 \\ 4 \end{pmatrix}$. 
+		but that you do not necessarily know the exponents $a$ and 
+		$b$. Determine whether $C$ is equal to $g^{ab} \mod p$. Notice 
+		that this is different from the Diffie-Hellman problem itself. 
 		\begin{enumerate}
-			\item Encrypt the message $m_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$. 
-			\item What is the matrix $k_1^{-1}$ used for decryption?
-			\item Decrypt the message $c = \begin{pmatrix} 3 \\ 5 \end{pmatrix}$.
+			\item Prove that an algorithm that solves the Diffie-
+				Hellman problem can be used to solve the decision 
+				Diffie-Hellman problem.
+			\item Do you think that the decision Diffie-Hellman problem 
+				is hard or easy? Why? 
 		\end{enumerate}
-		\item Explain why the Hill cipher is vulnerable to a known plaintext attack. 
-		\item The following plaintext/ciphertext pairs were generated using a Hill cipher with 
-			the prime $p=11$. Find the keys $k_1$ and $k_2$. 
-		\begin{displaymath}
-			m_1 = \begin{pmatrix} 5 \\ 4 \end{pmatrix}, \ c_1 = \begin{pmatrix} 1 \\ 8 \end{pmatrix}, 
-			\ m_2 = \begin{pmatrix} 8 \\ 10 \end{pmatrix}, \ c_2 = \begin{pmatrix} 8 \\ 5 
-			\end{pmatrix}, \ m_3 = \begin{pmatrix} 7 \\ 1 \end{pmatrix}, c_3 = 
-			\begin{pmatrix} 8 \\ 7 \end{pmatrix} 
-		\end{displaymath}
-		\item Explain how any simple substitution cipher that involves a permutation of the alphabet 
-		can be thought of as a special case of a Hill cipher.
-	\end{enumerate}
-\item (1.48) Explain why the cipher 
-	\begin{displaymath}
-		e_k(m) = k \oplus m \ \text{and} \ d_k(c) = k \oplus c 
-	\end{displaymath}
-	defined by XOR of bit strings is not secure against a known plaintext attack. Demonstrate your attack 
-	by finding the private key used to encrypt the 16-bit 
-	ciphertext $c = 1001010001010111$ if you know the corresponding plaintext is $m = 0010010000101100$.
+	\item (2.8) Alice and Bob agree to use the prime $p=1373$ and the base 
+		$g=2$ for communications using the Elgamal public key cryptosystem. 
+		\begin{enumerate}
+			\item Alice chooses $a=947$ as her private key. What is the 
+				value of her public key $A$?
+			\item Bob choose $b=716$ as his private key, so his public 
+				key is 
+				\begin{displaymath}
+					B = 2^{716} = 469 \mod 1373
+				\end{displaymath}
+				Alice encrypts the message $m=583$ using the random 
+				element $k=877$. What is the ciphertext $(c_1,c_2)$ 
+				that Alice sends to Bob?
+			\item Alice decides to choose a new private key $a=299$ with 
+				associated public key $A = 2^{299} = 34 \mod 1373$. 
+				Bob encrypts a message using Alice's public key and 
+				sends her the ciphertext $(c_1,c_2) = (661,1325)$. 
+				Decrypt this message. 
+			\item Now Bob choose a new private key and publishes the 
+				associated public key $B = 893$. Alice encrypts a 
+				message using the this public key and sends the ciphertext 
+				$(c_1,c_2) = (693,793)$ to Bob. Eve intercepts the 
+				transmission. Help Eve by the solving the discrete 
+				logarithm problem $2^b = 893 \mod 1373$ and using the 
+				value of $b$ to decrypt the message. 
+		\end{enumerate}
+	\item (2.9) Suppose Eve is able to solve the Diffie-Hellman problem. More precisely, 
+		assume that Eve is given two powers $g^u$ and $g^v \mod p$, then she is 
+		able to compute $g^{uv} \mod p$. Show that Eve can break the Elgamal PKC.
+	\item (2.10) This exercise describes a public key cryptosystem that requires Bob and 
+		Alice to exchange several messages. We illustrate the system with an example. 
+
+		Bob and Alice fix a publicly known prime $p=32611$, and all of the other 
+		numbers are private. Alice takes her message $m=11111$, choose a random 
+		exponent $a=3589$, and sends the number $u = m^a \mod p = 15950$ to Bob. Bob 
+		chooses a random exponent $b=4037$ and sends $v = u^b \mod p = 15422$ back 
+		to Alice. Alice then computes $w = v^{15619} = 27257 \mod 32611$ and sends 
+		$w = 27257$ to Bob. Finally, Bob computes $w^{31883} mod 32611$ and recovers 
+		the value $11111$ of Alice's message. 
+		\begin{enumerate}
+			\item Explain why this algorithm works. In particular, Alice uses the 
+				numbers $a=3589$ and $15619$ as exponents. How are they related? 
+				Similarly, how are Bob's exponents $b=4037$ and $31883$ relates? 
+			\item Formulate a general version of this cryptosystem, i.e. using variables, 
+				and show that it works in general. 
+			\item What is the disadvantage of this cryptosystem over Elgamal? (Hint: 
+				How many times must Alice and Bob exchange data?)
+			\item Are there any advantages of this cryptosystem over Elgamal? In particular, 
+				can Eve break it if she can solve the discrete logarithm problem? 
+				Can Eve break it if she can solve the Diffie-Hellman problem?
+		\end{enumerate}
 \end{enumerate}
 
 \end{document}
