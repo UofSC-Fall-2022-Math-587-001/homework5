@@ -16,6 +16,10 @@ Note: when you submit, your filename must be `solutions.pdf` and it must be a pd
 ### Implementation part 
 
 This week we start with the first algorithmic attempt at faster solution to 
-solving the discrete logarithm problem: Shanks algorithm. 
+solving the discrete logarithm problem: Shanks's algorithm. 
 
-Make `hw5.go` pass the tests. 
+Make `hw5.go` pass the tests. The tests only check to see if you correctly 
+compute the discrete log. Shanks's algorithm value is the speed up from 
+a brute force search to O(N^{1/2} log N). Read the proof of Propositon 2.21 
+and take a look at the documentation for [`sort.Search`](https://pkg.go.dev/sort#Search) 
+and [`sort.Sort`](https://pkg.go.dev/sort#Sort).

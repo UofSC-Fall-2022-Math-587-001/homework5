@@ -1,6 +1,6 @@
 package library
 
-func ModN(i, N int) int {
+func ModN(N, i int) int {
 	m := i % N 
 	if m < 0 {
 		m += N 
@@ -14,9 +14,9 @@ func FastPower(N, g, A int) int {
 	b = 1 
 	for A > 0 {
 		if A % 2 == 1 {
-			b = ModN(b*a, N)
+			b = ModN(N,b*a)
 		} 
-		a = ModN(a*a, N) 
+		a = ModN(N,a*a) 
 		A = A / 2 
 	}
 	return b
